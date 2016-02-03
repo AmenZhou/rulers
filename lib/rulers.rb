@@ -1,4 +1,5 @@
 require "rulers/version"
+require "rulers/array"
 
 module Rulers
   # Your code goes here...
