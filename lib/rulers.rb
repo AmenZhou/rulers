@@ -10,6 +10,11 @@ module Rulers
           {'Content-Type' => 'text/html'}, []]
       end
 
+      if env['PATH_INFO'] == '/'
+        return [200, {'Content-Type' => 'text/html'},
+         ['Hello']]
+      end
+
       klass, act = get_controller_and_action(env)
       controller = klass.new(env)
       begin
