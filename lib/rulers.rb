@@ -11,8 +11,10 @@ module Rulers
       end
 
       if env['PATH_INFO'] == '/'
+        controller = HomeController.new(env)
+        text = controller.send(:index)
         return [200, {'Content-Type' => 'text/html'},
-         ['Hello']]
+         [text]]
       end
 
       klass, act = get_controller_and_action(env)
