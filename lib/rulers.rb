@@ -2,6 +2,7 @@ require "rulers/version"
 require "rulers/routing"
 require "rulers/util"
 require "rulers/dependencies"
+require "rulers/controller"
 
 module Rulers
   # Your code goes here...
@@ -29,16 +30,6 @@ module Rulers
         [200, {'Content-Type' => 'text/html'},
          ['There is something wrong' + e.inspect]]
       end
-    end
-  end
-
-  class Controller
-    def initialize(env)
-      @env = env
-    end
-
-    def env
-      @env
     end
   end
 end
