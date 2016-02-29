@@ -3,6 +3,7 @@ require "rulers/routing"
 require "rulers/util"
 require "rulers/dependencies"
 require "rulers/controller"
+require "rulers/file_model"
 
 module Rulers
   # Your code goes here...
@@ -22,14 +23,14 @@ module Rulers
 
       klass, act = get_controller_and_action(env)
       controller = klass.new(env)
-      begin
+      #begin
         text = controller.send(act)
         [200, {'Content-Type' => 'text/html'},
          [text]]
-      rescue => e
-        [200, {'Content-Type' => 'text/html'},
-         ['There is something wrong' + e.inspect]]
-      end
+      #rescue => e
+        #[200, {'Content-Type' => 'text/html'},
+         #['There is something wrong' + e.inspect]]
+      #end
     end
   end
 end
